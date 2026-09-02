@@ -15,4 +15,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Command to run your application
-CMD ["npm", "start"]
+CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "3000"]
