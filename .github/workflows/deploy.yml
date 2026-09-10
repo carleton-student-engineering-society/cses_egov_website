@@ -30,12 +30,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/cses-technical/cses_egov_website
+          images: ghcr.io/carleton-student-engineering-society/cses_egov_website
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ghcr.io/cses-technical/cses_egov_website:latest
+          tags: ghcr.io/carleton-student-engineering-society/cses_egov_website:latest
           labels: ${{ steps.meta.outputs.labels }}
