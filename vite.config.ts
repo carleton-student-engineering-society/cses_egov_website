@@ -5,6 +5,6 @@ export default defineConfig({
     allowedHosts: ['egov.mycses.ca'],
   },
   preview: {
-    allowedHosts: ['egov.mycses.ca'],
+    allowedHosts: true,
   }
 })
