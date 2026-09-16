@@ -12,4 +12,4 @@ COPY --from=builder /app/package*.json ./
 RUN npm ci --omit=dev
 
 EXPOSE 3000
-CMD ["npx", "serve", "-s", "dist", "-l", "3000"]
+CMD ["npx", "--yes", "serve", "-s", "dist", "-l", "3000"]
