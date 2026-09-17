@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSES Governance</title>
-    <!-- Tailwind via CDN to completely avoid extra CSS build modules -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
   </head>
@@ -24,6 +23,8 @@
         CSES Governance
       </h1>
 
+      <div id="upload-status" class="text-sm font-medium mb-4 h-5 text-gray-600"></div>
+
       <!-- Search Bar -->
       <div class="w-full max-w-xl mb-12">
         <input
@@ -34,9 +35,8 @@
         />
       </div>
 
-      <!-- Divider Line -->
-      <div class="w-full border-t border-gray-200"></div>
-    </main>
+    <!-- Hidden file input for PDFs -->
+    <input type="file" id="pdf-file-input" accept="application/pdf" class="hidden" />
 
     <!-- Load TypeScript Entry Point -->
     <script type="module" src="/src/main.ts"></script>
