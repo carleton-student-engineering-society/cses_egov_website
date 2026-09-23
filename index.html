@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSES Governance</title>
-    <!-- Tailwind via CDN to completely avoid extra CSS build modules -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   </head>
   <body class="bg-white min-h-screen flex flex-col">
     
     <!-- Header -->
-    <header class="w-full px-6 py-4 flex items-center justify-between border-b border-gray-200">
-      <div class="text-2xl font-bold text-gray-900">Logo</div>
-      <button id="upload-btn" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium text-sm transition-colors cursor-pointer">
-        ↑ upload
+    <header style="background-color: RGB(174, 31, 36);" class="w-full px-6 py-4 flex items-center justify-between border-b border-gray-200"
+    >
+      <img src="./images/CSES Logo (+text, white).png" width="200" alt="CSES Logo"/>
+      <button id="upload-btn" style="background-color: RGB(255, 255, 255);" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium text-sm transition-colors cursor-pointer">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        upload
       </button>
     </header>
 
@@ -24,19 +26,28 @@
         CSES Governance
       </h1>
 
+      <div id="upload-status" class="text-sm font-medium mb-4 h-5 text-gray-600"></div>
+
       <!-- Search Bar -->
-      <div class="w-full max-w-xl mb-12">
+      <div class="relative w-full max-w-xl" >
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 z-10" 
+          style="color:white;">
+        </i>
         <input
           type="text"
           id="search-input"
-          placeholder="🔍 Search"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 shadow-sm"
+          placeholder="Search"
+          class="w-full pl-11 pr-4 py-3 border border-gray-300 text-white opacity-90 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 shadow-sm"
+          style="background-color: RGB(66, 31, 72);"
         />
       </div>
 
-      <!-- Divider Line -->
-      <div class="w-full border-t border-gray-200"></div>
+      <!-- PDF Grid rendered by main.ts -->
+      <div id="pdf-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full pb-16"></div>
     </main>
+
+    <!-- Hidden file input for PDFs -->
+    <input type="file" id="pdf-file-input" accept="application/pdf" class="hidden" />
 
     <!-- Load TypeScript Entry Point -->
     <script type="module" src="/src/main.ts"></script>
