@@ -37,6 +37,7 @@ function renderPdfGrid(items: Array<{ name: string; url: string }>, filterQuery 
   `).join('');
 }
 
+// This function escapes HTML
 function escapeHtml(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
