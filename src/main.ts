@@ -79,6 +79,7 @@ fileInput?.addEventListener('change', async (e: Event) => {
       await loadPdfs();
     } else {
       const err = await response.json().catch(() => ({}));
+      console.log(err.body)
       throw new Error(err.error || `Status ${response.status}`);
     }
   } catch (error: any) {
