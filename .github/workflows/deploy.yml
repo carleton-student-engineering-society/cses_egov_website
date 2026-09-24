@@ -2,7 +2,7 @@ name: Build and Push to GHCR
 
 on:
   push:
-    branches: [ "developer" ]
+    branches: [ "developer", "pdf_upload" ]
 
 permissions:
   contents: read
