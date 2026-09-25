@@ -75,7 +75,7 @@ app.get('/api/pdfs', async (req, res) => {
     const files = [];
     let match;
     while ((match = regex.exec(xmlText)) !== null) {
-      const decodedName = decodeURIComponent(match).trim();
+      const decodedName = decodeURIComponent(match[1]).trim();
       if (decodedName && decodedName.toLowerCase().endsWith('.pdf') && decodedName !== 'PDF_Upload') {
         files.push({ name: decodedName, url: `/api/pdf-file/${encodeURIComponent(decodedName)}` });
       }
