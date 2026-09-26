@@ -1,9 +1,13 @@
-require('dotenv').config();
-const express = require('express');
-const axios = require('axios');
-const multer = require('multer');
-const { Readable } = require('stream');
-const path = require('path');
+import 'dotenv/config';
+import express from 'express';
+import axios from 'axios';
+import multer from 'multer';
+import { Readable } from 'stream';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
