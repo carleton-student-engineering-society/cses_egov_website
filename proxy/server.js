@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const multer = require('multer');
 const { Readable } = require('stream');
+const path = require('path');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -115,7 +116,15 @@ app.get('/api/pdf-file/:filename', async (req, res) => {
   }
 });
 
+// Serve compiled vite static assets
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Fallback to index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Express proxy running on port ${PORT}`);
+  console.log(`Express server running on port ${PORT}`);
 });
