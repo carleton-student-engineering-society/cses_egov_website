@@ -49,7 +49,7 @@ jobs:
           docker rm cses_egov_website || true
           docker run -d \
             --name cses_egov_website \
-            --network <your_nextcloud_network_name> \
+            --network caddy-net \
             -p 3000:3000 \
             -e NC_USER="${{ secrets.NC_USER }}" \
             -e NC_PASS="${{ secrets.NC_PASS }}" \
