@@ -1,52 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSES Governance</title>
-    <!-- Tailwind via CDN to completely avoid extra CSS build modules -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">
-  </head>
-  <body class="bg-white min-h-screen flex flex-col">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSES Governance</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <img src="/images/CSES Logo (+text, white).png" alt="CSES Logo" class="nav-logo" />
+      <span>CARLETON STUDENT ENGINEERING SOCIETY</span>
+    </div>
+    <button class="upload-btn">↑ upload</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>CSES Governance</h1>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search" />
+    </div>
+  </section>
+
+  <!-- Dark Section Below Page Scroll -->
+  <section class="dark-section">
     
-    <!-- Header -->
-    <header class="w-full px-6 py-4 flex items-center justify-between border-b border-gray-200">
-      <div class="text-2xl font-bold text-gray-900">Logo</div>
-      <button id="upload-btn" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium text-sm transition-colors cursor-pointer">
-        ↑ upload
-      </button>
-    </header>
+    <!-- Large Branding Banner -->
+    <div class="brand-hero">
+      <img src="/images/CSES Logo (+text, white).png" alt="CSES Logo" class="large-logo" />
+      <h2>CARLETON STUDENT<br>ENGINEERING SOCIETY</h2>
+    </div>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center pt-20 px-4">
-      <h1 class="text-4xl md:text-5xl font-semibold text-gray-800 mb-8">
-        CSES Governance
-      </h1>
-
-      <!-- Search Bar -->
-      <div class="w-full max-w-xl mb-12">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="🔍 Search"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 shadow-sm"
-        />
+    <!-- Category Cards -->
+    <div class="cards-container">
+      <div class="card card-red">
+        <h3>ACADEMIC</h3>
+        <p>The colour of Carleton University. We are proud to be Ravens dedicated to academic success.</p>
       </div>
 
-      <!-- Divider Line -->
-      <div class="w-full border-t border-gray-200"></div>
-    </main>
+      <div class="card card-grey">
+        <h3>PROFESSIONAL</h3>
+        <p>The colour of the Iron Ring. A promise to our profession to develop our professional skills.</p>
+      </div>
 
-    <!-- Footer -->
-    <footer class="w-full py-6 border-t border-gray-200 text-center text-sm text-gray-500">
-      © 2026 Carleton Student Engineering Society (CSES)
-    </footer>
-    <footer class="w-full py-6 border-t border-gray-200 text-center text-sm text-gray-500">
-      © 2026 Carleton Student Engineering Society (CSES)
+      <div class="card card-purple">
+        <h3>SOCIAL</h3>
+        <p>The colour of engineering. Go hard. Go purple. Godiva. Work hard. Play hard.</p>
+      </div>
+    </div>
+
+    <!-- Links & Info Footer -->
+    <footer class="footer-links">
+      <div class="footer-col">
+        <h4>FOLLOW US</h4>
+        <ul>
+          <li><a href="https://linktr.ee/cses" target="_blank" rel="noopener">linktr.ee/cses</a></li>
+          <li><a href="#" target="_blank" rel="noopener">3300 Block Discord</a></li>
+          <li><a href="https://instagram.com/mycses" target="_blank" rel="noopener">@mycses</a></li>
+          <li><a href="#" target="_blank" rel="noopener">/MyCSES</a></li>
+          <li><a href="#" target="_blank" rel="noopener">MyCSES</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>OUR MISSION</h4>
+        <p>The goal of the Carleton Student Engineering Society (CSES) is to provide our members (undergraduate engineering students of Carleton) with academic, professional, and social resources to help them make the most of their four (or more) years at Carleton.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>MAILING ADDRESS</h4>
+        <p>Carleton Student Engineering Society (CSES)<br>
+        3390 Mackenzie Building<br>
+        Carleton University<br>
+        1125 Colonel By Drive<br>
+        Ottawa, Ontario<br>
+        K1S 5B6</p>
+      </div>
     </footer>
 
-    <!-- Load TypeScript Entry Point -->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <div class="contact-btn-container">
+      <a href="mailto:info@cses.carleton.ca" class="contact-btn">Contact Us</a>
+    </div>
+
+  </section>
+
+  <!-- Bottom Copyright Bar -->
+  <div class="copyright-bar">
+    © 2026 Carleton Student Engineering Society (CSES)
+  </div>
+
+</body>
 </html>
