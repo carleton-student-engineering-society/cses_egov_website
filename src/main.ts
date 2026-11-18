@@ -37,7 +37,8 @@ function renderPdfGrid(items: Array<{ name: string; url: string }>, filterQuery 
   pdfGrid.innerHTML = filtered.map(pdf => `
     <button popovertarget="pdf-dialog" popovertargetaction="show"  
        data-src="${pdf.url}"
-       onClick="document.getElementById('pdf-iframe').src=this.dataset.src"
+       data-name="${pdf.name}"
+       onClick="document.getElementById('pdf-iframe').src=this.dataset.src;document.getElementById('pdf-name').innerHTML=this.dataset.name;"
        class="aspect-square bg-[#222831] rounded-lg p-6 flex flex-col items-center justify-center text-center hover:opacity-90 transition-opacity shadow-sm">
       <div class="text-sm font-medium text-white line-clamp-3">
         ${escapeHtml(pdf.name)}
