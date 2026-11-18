@@ -4,9 +4,16 @@ const fileInput = document.getElementById('pdf-file-input') as HTMLInputElement 
 const statusMsg = document.getElementById('upload-status');
 const pdfGrid = document.getElementById('pdf-grid');
 
+/** Enable for testing fake pdfs when no server is available */
+const TESTING_FAKE_PDFS = false; // TODO: Remove before pull request
+
 let allPdfs: Array<{ name: string; url: string }> = [];
 
 async function loadPdfs() {
+  if (TESTING_FAKE_PDFS) { // TODO: Remove before pull request
+    renderPdfGrid([{name: "dimension-8300_owner's+manual_en-us.pdf", url: "https://dl.dell.com/manuals/all-products/esuprt_desktop/esuprt_dimension_desktops/dimension-8300_owner's%20manual_en-us.pdf"}])
+    return;
+  }
   try {
     const res = await fetch('/api/pdfs');
     if (res.ok) {
@@ -28,12 +35,15 @@ function renderPdfGrid(items: Array<{ name: string; url: string }>, filterQuery 
   }
 
   pdfGrid.innerHTML = filtered.map(pdf => `
-    <a href="/api/pdf-file/${encodeURIComponent(pdf.name)}" target="_blank" 
+    <button popovertarget="pdf-dialog" popovertargetaction="show"  
+       data-src="${pdf.url}"
+       data-name="${pdf.name}"
+       onClick="document.getElementById('pdf-iframe').src=this.dataset.src;document.getElementById('pdf-name').innerHTML=this.dataset.name;"
        class="aspect-square bg-[#222831] rounded-lg p-6 flex flex-col items-center justify-center text-center hover:opacity-90 transition-opacity shadow-sm">
       <div class="text-sm font-medium text-white line-clamp-3">
         ${escapeHtml(pdf.name)}
       </div>
-    </a>
+    </button>
   `).join('');
 }
 
